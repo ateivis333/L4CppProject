@@ -26,5 +26,8 @@
     <ClInclude Include="itemArray_v2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Group1Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

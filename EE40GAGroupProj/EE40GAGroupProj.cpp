@@ -2,8 +2,7 @@
 
 
 #include <iostream>
-#include "itemArray_v2.h"
-#include "arrayItem_v2.h"
+#include "Group1Header.h"
 
 // for advanced part only
 //#include "generalArray_v2.h"
@@ -93,9 +92,9 @@ void test_Individualtem()
 	// Try each one below (ucomment one line at a time)
 	// When ready, repleace these with items of the type you have implemented 
 
-	integer_item testitem1, testitem1a; basic_sort_criteria testsort_crit;
+	//integer_item testitem1, testitem1a; basic_sort_criteria testsort_crit;
 	//intmat_item testitem1, testitem1a; intmat_sort_criteria testsort_crit; //testsort_crit.setOption(intmat_sort_criteria::sort_determ);
-
+	integer_itemWithLimits testitem1, testitem1a; basic_sort_criteria testsort_crit;
 
 	// 
 	cout << "Test input funcitons:" << endl;
