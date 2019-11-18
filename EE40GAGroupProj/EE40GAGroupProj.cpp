@@ -95,8 +95,8 @@ void test_Individualtem()
 	//integer_item testitem1, testitem1a; basic_sort_criteria testsort_crit;
 	//intmat_item testitem1, testitem1a; intmat_sort_criteria testsort_crit; //testsort_crit.setOption(intmat_sort_criteria::sort_determ);
 	//integer_itemWithLimits testitem1, testitem1a; basic_sort_criteria testsort_crit;
-	string_item testitem1, testitem1a; basic_sort_criteria testsort_crit;
-
+	//string_item testitem1, testitem1a; basic_sort_criteria testsort_crit;
+	integer_AvgCGS_mark testitem1, testitem1a; basic_sort_criteria testsort_crit;
 	// 
 	cout << "Test input funcitons:" << endl;
 	testItemFunctions_part1(&testitem1);

@@ -22,7 +22,11 @@ protected:
 	{
 		return ((input_value >= min_val) & (input_value <= max_val));
 	}
-
+	void inpoutBoundaries(int in_min, int in_max)
+	{
+		min_val = in_min;
+		max_val = in_max;
+	}
 
 public:
 	//constructor
@@ -104,41 +108,24 @@ public:
 		}
 	}
 
+	
 };
 
 
 
     
-class integer_AvgCGS_mark :public integer_item {
-public:
-	const static int default_min = 0, default_max = 22;
-	int min_val = default_min, max_val = default_max;
-	bool debug_mode;
-	bool printboundaries;
+class integer_AvgCGS_mark :public integer_itemWithLimits {
 protected:
-	bool withinBounds(int input_value)
-	{
-		return ((input_value >= min_val) & (input_value <= max_val));
-	}
+	const static int default_min = 0, default_max = 22;
 public:
 	//constructor
-	integer_AvgCGS_mark(bool debug_flag = false, bool printboundariesflag = false)
+	integer_AvgCGS_mark()
 	{
 		itemTypeName = "integer_AvgCGS_mark";
-		debug_mode = debug_flag;
-		printboundaries = printboundariesflag;
+		inpoutBoundaries(default_min, default_max);
 	}
 	//destructor
-	~integer_AvgCGS_mark() {
-		if (debug_mode)
-		{
-			cout << "integer_item destructor called" << endl;
-		}
-	}
-	virtual void generateRandomItem()
-	{
-		generateRandomItemWithinLimits(min_val, max_val);
-	}
+	~integer_AvgCGS_mark() { ; }
 	
 	virtual void enterItemFromKeyboard()
 	{
