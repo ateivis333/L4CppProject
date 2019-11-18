@@ -4,6 +4,13 @@
 #include "ArrayItem_v2.h"
 #include "itemArray_v2.h"
 
+//for generating random string
+static const char alphanum[] =
+//"0123456789"
+//"!@#$%^&*"
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+"abcdefghijklmnopqrstuvwxyz";
+
 class integer_itemWithLimits :public integer_item {
 protected:
 	const static int default_min = -50, default_max = 50;
@@ -100,13 +107,14 @@ public:
 };
 
 
+
+    
+class integer_AvgCGS_mark :public integer_item {
+public:
 	const static int default_min = 0, default_max = 22;
 	int min_val = default_min, max_val = default_max;
 	bool debug_mode;
 	bool printboundaries;
-    
-    
-class integer_AvgCGS_mark :public integer_item {
 protected:
 	bool withinBounds(int input_value)
 	{
@@ -174,12 +182,7 @@ public:
 	}
 };
 
-//for generating random string
-    static const char alphanum[] =
-    //"0123456789"
-    //"!@#$%^&*"
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    "abcdefghijklmnopqrstuvwxyz";
+
 class string_item :public basic_item {
 protected:
 	string stringValue;
