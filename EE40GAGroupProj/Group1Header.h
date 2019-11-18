@@ -99,9 +99,81 @@ public:
 
 };
 
+class integer_AvgCGS_mark :public integer_item {
+protected:
 
+	const static int default_min = 0, default_max = 22;
+	int min_val = default_min, max_val = default_max;
+	bool debug_mode;
+	bool printboundaries;
 
+	bool withinBounds(int input_value)
+	{
+		return ((input_value >= min_val) & (input_value <= max_val));
+	}
 
+public:
+	//constructor
+	integer_AvgCGS_mark(bool debug_flag = false, bool printboundariesflag = false)
+	{
+		itemTypeName = "integer_AvgCGS_mark";
+		debug_mode = debug_flag;
+		printboundaries = printboundariesflag;
+	}
+	//destructor
+	~integer_AvgCGS_mark() {
+		if (debug_mode)
+		{
+			cout << "integer_item destructor called" << endl;
+		}
+	}
+
+	virtual void generateRandomItem()
+	{
+		generateRandomItemWithinLimits(min_val, max_val);
+	}
+	
+	virtual void enterItemFromKeyboard()
+	{
+		if (isLocked())
+			cout << "Error in enterItemFromKeyboard: Item is locked" << endl;
+		else
+		{
+			cout << "Insert Average CGS mark for current level, then hit enter." << endl;
+			int temp_value;
+			cin >> temp_value;
+			if (withinBounds(temp_value))
+			{
+				item_value = temp_value;
+				cout << endl;
+				// item filled
+				empty = false;
+			}
+			else
+			{
+				cout << "Error in enterItemFromKeyboard: Input value is out of bounds (0-22)" << endl;
+			}
+
+		}
+	}
+
+	virtual void printItemOnScreen()
+	{
+		if (isEmpty())
+		{
+			cout << "Item is empty." << endl;
+		}
+		else
+		{
+			cout << "Average CGS Mark: " << item_value;
+			if (printboundaries)
+			{
+				cout << ", Boundaries are: " << min_val << " : " << max_val;
+			}
+			cout << " . " << endl;
+		}
+	}
+};
 
 #endif
  
