@@ -169,7 +169,10 @@ void test_EntireArray()
 	// Try each one below (ucomment one line at a time)
 	// When ready, repleace these with items of the type you have implemented 
 	//integer_item testitem; basic_sort_criteria testsort_crit;
-	intmat_item testitem; intmat_sort_criteria testsort_crit; //testsort_crit.setOption(intmat_sort_criteria::sort_determ);
+	//intmat_item testitem; intmat_sort_criteria testsort_crit; //testsort_crit.setOption(intmat_sort_criteria::sort_determ);
+	//integer_itemWithLimits testitem; basic_sort_criteria testsort_crit;
+	//integer_AvgCGS_mark testitem; basic_sort_criteria testsort_crit;
+	string_item testitem; string_sort_criteria testsort_crit;
 
 	item_array testArray;
 
@@ -191,6 +194,6 @@ void test_EntireArray()
 
 void main()
 {
-	test_Individualtem();
-	//test_EntireArray();
+	//test_Individualtem();
+	test_EntireArray();
 }

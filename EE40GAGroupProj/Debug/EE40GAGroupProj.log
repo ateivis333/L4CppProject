@@ -1,4 +1,4 @@
 ﻿  EE40GAGroupProj.cpp
-D:\Google Drive\GitCode\L4CppProject\EE40GAGroupProj\Group1Header.h(190,31): warning C4018: '<': signed/unsigned mismatch
-D:\Google Drive\GitCode\L4CppProject\EE40GAGroupProj\EE40GAGroupProj.cpp(193,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\Google Drive\GitCode\L4CppProject\EE40GAGroupProj\Group1Header.h(325,31): warning C4018: '<': signed/unsigned mismatch
+D:\Google Drive\GitCode\L4CppProject\EE40GAGroupProj\EE40GAGroupProj.cpp(196,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
   EE40GAGroupProj.vcxproj -> D:\Google Drive\GitCode\L4CppProject\EE40GAGroupProj\Debug\EE40GAGroupProj.exe
