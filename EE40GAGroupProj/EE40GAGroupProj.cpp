@@ -52,7 +52,7 @@ void testItemFunctions_part2(basic_item* item_ptr_1, basic_item* item_ptr_2, bas
 	cout << endl;
 
 	cout << "Function comparing two items" << endl;
-	if (sort_criteria != NULL)
+	if (sort_criteria != nullptr)//changed from NULL, because it was undefined 
 	{
 		cout << "  Set the comparison criteria:" << endl;
 		sort_criteria->setOptionFromKeyboard();
@@ -96,8 +96,10 @@ void test_Individualtem()
 	//intmat_item testitem1, testitem1a; intmat_sort_criteria testsort_crit; //testsort_crit.setOption(intmat_sort_criteria::sort_determ);
 	//integer_itemWithLimits testitem1, testitem1a; basic_sort_criteria testsort_crit;
 	//string_item testitem1, testitem1a; basic_sort_criteria testsort_crit;
-	integer_AvgCGS_mark testitem1, testitem1a; basic_sort_criteria testsort_crit;
+	//integer_AvgCGS_mark testitem1, testitem1a; basic_sort_criteria testsort_crit;
+	//task_2_item testitem1, testitem1a; task2_sort_criteria testsort_crit;
 	// 
+	studentrecord_item testitem1, testitem1a; task3_sort_criteria testsort_crit;
 	cout << "Test input funcitons:" << endl;
 	testItemFunctions_part1(&testitem1);
 	cout << endl;
@@ -106,7 +108,7 @@ void test_Individualtem()
 	testItemFunctions_part1(&testitem1);
 	testitem1.setLocked(false);
 	cout << endl;
-
+	
 
 	cout << "Test comparison of two items:" << endl;
 	// this uses the default comparison option:
@@ -156,6 +158,7 @@ void testArrayFunctions_part2(item_array& testArray, basic_sort_criteria& testso
 
 	cout << " Choose sort criterion: " << endl;
 	testsort_crit.setOptionFromKeyboard();
+	testsort_crit.printOptionToScreen();
 	cout << "Done." << endl;
 
 	cout << " Sort array and print the result: " << endl;
@@ -172,10 +175,12 @@ void test_EntireArray()
 	//intmat_item testitem; intmat_sort_criteria testsort_crit; //testsort_crit.setOption(intmat_sort_criteria::sort_determ);
 	//integer_itemWithLimits testitem; basic_sort_criteria testsort_crit;
 	//integer_AvgCGS_mark testitem; basic_sort_criteria testsort_crit;
-	string_item testitem; string_sort_criteria testsort_crit;
+	//string_item testitem; basic_sort_criteria testsort_crit;
+	//task_2_item testitem; task2_sort_criteria testsort_crit;
+	studentrecord_item testitem; task3_sort_criteria testsort_crit;
 
-	item_array testArray;
-
+	//item_array testArray;
+	general_item_array testArray;
 	cout << "The type of item used for all entries in the array is:";
 	testitem.printItemTypeName();
 	testArray.attachItemPrototype(&testitem);
@@ -183,17 +188,33 @@ void test_EntireArray()
 
 	cout << "Testing Array allocation and data entry: " << endl;
 	//testArrayFunctions_part1(testArray);
-	testArray.allocateArrayAndItems(10);
+	testArray.allocateArrayAndItems(10, true);
 	cout << "Done." << endl << endl;
 
 	cout << "Testing Array sorting " << endl;
-	testArrayFunctions_part2(testArray, testsort_crit);
+	//testArrayFunctions_part2(testArray, testsort_crit);
+	cout << " Fill array randomly: " << endl;
+	testArray.fillRandomValueArray();
+	testArray.printArrayOnScreen();
+	cout << "Done." << endl;
+
+	cout << " Choose sort criterion: " << endl;
+	testsort_crit.setOptionFromKeyboard();
+	testsort_crit.printOptionToScreen();
+	cout << "Done." << endl;
+
+	cout << " Sort array and print the result: " << endl;
+	testArray.mergesort(&testsort_crit);
+	testArray.printArrayOnScreen();
+	cout << "Done." << endl;
 	cout << "Done." << endl;
 }
 
 
-void main()
+int main()
 {
 	//test_Individualtem();
 	test_EntireArray();
+
+	return 0;
 }

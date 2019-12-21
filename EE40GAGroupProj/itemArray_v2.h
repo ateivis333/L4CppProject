@@ -99,15 +99,7 @@ protected:
 		basic_item* result = getElementPtr(current_index);
 		return result;
 	}
-	// access individual elements (via the index)
-	basic_item *getElementPtr(int index)
-	{
-		// check that the memory is allocated and that the element indexes are within array boundary
-		if (checkIndexIsAllowed(index))
-			return thearray[index];
-		else
-			return NULL;
-	}
+	
 	// removes the element from the array:
 	virtual basic_item *getNremoveElementPtr(int index)
 	{
@@ -124,37 +116,7 @@ protected:
 		return elem_ptr;
 	}
 	// insert an element to the array (if requred position is available)
-	virtual bool insertElementPtr(int index, basic_item* item_ptr, bool element_to_be_deleted_externally)
-	{
-		// check that the memory is allocated and that the element index is within array boundary
-		if (memIsAllocated() && checkIndexIsAllowed(index))
-		{
-			// add the item if array element is not occupied already
-			if ((thearray[index] == NULL))
-			{
-				if ((item_ptr != NULL))
-				{
-					thearray[index] = item_ptr;
-					tot_items++;					
-					current_index = index;					
-					return true;
-				}
-				else
-				{
-					cout << endl << " Attempting to insert a NULL element." << endl;
-					return false;
-				}
-			}
-			else
-			{
-				cout << endl << " Attempting to overwrite element at position " << index << " : not allowed." << endl;
-				return false;
-			}
-		}
-		else
-			return false;
-	}
-	// to insert/remove (push/pop) elemnts (useful with mergesort)	
+
 	bool appendElementPtr(basic_item* item_ptr, bool element_to_be_deleted_externally)
 	{
 		bool success = insertElementPtr((current_index + 1), item_ptr, element_to_be_deleted_externally);		
@@ -420,8 +382,53 @@ public:
 		}
 
 	}	
+
+
+	virtual bool insertElementPtr(int index, basic_item* item_ptr, bool element_to_be_deleted_externally)
+	{
+		// check that the memory is allocated and that the element index is within array boundary
+		if (memIsAllocated() && checkIndexIsAllowed(index))
+		{
+			// add the item if array element is not occupied already
+			if ((thearray[index] == NULL))
+			{
+				if ((item_ptr != NULL))
+				{
+					thearray[index] = item_ptr;
+					tot_items++;
+					current_index = index;
+					return true;
+				}
+				else
+				{
+					cout << endl << " Attempting to insert a NULL element." << endl;
+					return false;
+				}
+			}
+			else
+			{
+				cout << endl << " Attempting to overwrite element at position " << index << " : not allowed." << endl;
+				return false;
+			}
+		}
+		else
+			return false;
+	}
+	// to insert/remove (push/pop) elemnts (useful with mergesort)	
+
+	// access individual elements (via the index)
+	basic_item* getElementPtr(int index)
+	{
+		// check that the memory is allocated and that the element indexes are within array boundary
+		if (checkIndexIsAllowed(index))
+			return thearray[index];
+		else
+			return NULL;
+	}
 };
 
 
 
 #endif
+
+

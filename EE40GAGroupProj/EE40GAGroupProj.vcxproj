@@ -155,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayItem_v2.h" />
+    <ClInclude Include="generalArray_v2.h" />
     <ClInclude Include="Group1Header.h" />
     <ClInclude Include="itemArray_v2.h" />
   </ItemGroup>
